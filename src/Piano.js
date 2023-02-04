@@ -64,9 +64,9 @@ class Piano extends Component {
   }
 
   render() {
-    const naturalKeyWidth = this.getNaturalKeyWidth();
+    const naturalKeyWidth = this.getNaturalKeyWidth(), { style } = this.props;
     return (
-      <View style={ styles.container}>
+      <View style={{ ...styles.container, ...style }}>
         {
           this.getMidiNumbers().map(midiNumber => {
             const { isAccidental } = MidiNumbers.getAttributes(midiNumber);
@@ -93,8 +93,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     position: 'relative', 
-    backgroundColor: 'red', 
-    borderTopColor: 'red', 
     borderTopWidth: 1,
   }
 })
